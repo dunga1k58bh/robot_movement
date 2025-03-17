@@ -4,7 +4,7 @@ project(CocCoc_HomeTest)
 set(CMAKE_CXX_STANDARD 17)
 
 # Add main executable
-add_executable(hometest drawing_robot.cpp CocCoc_HomeTest.cpp)
+add_executable(hometest drawing_robot.cpp main.cpp)
 
 # =========== GOOGLE TEST SETUP ===========
 include(FetchContent)
