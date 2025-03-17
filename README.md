@@ -77,3 +77,23 @@ cd out/Debug
 # Example
 ./hometest.exe test1.txt --totxt my_output.txt
 ```
+
+## Project Logic and Approach
+### Code Structure
+- Main Code: The robot movement and drawing logic are implemented in the core project files.
+	- drawing_robot.h: Contains the class definition for the DrawingRobot, which represents the robot's movement and drawing capabilities. 
+	- drawing_robot.cpp: Contains the main robot logic, including parsing commands and moving across the grid.
+	- CocCoc_HomeTest.cpp: Contains the main function that reads input commands, creates a DrawingRobot instance, and executes the commands.
+	- The robot reads commands (such as DIMENTION, MOVE_TO, LINE_TO) and moves across the grid.
+	- The grid is an N x N matrix where the robot can move and draw based on the provided commands.
+- Unit Tests: Unit tests are provided to verify each function in isolation, ensuring the correctness of logic (e.g., verifying the robot moves correctly and handles boundary conditions).
+
+### Approach
+- Grid Initialization: A grid of size N x N is created, where the robot begins in the top-left corner (0,0).
+- Command Parsing: Each command is parsed and executed sequentially.
+- Movement: The robot moves based on the direction provided by each command. It checks if the move is within the grid's boundaries.
+- Drawing: When a `LINE_TO` command is received, the robot marks its current position on the grid using [Bresenham's Line Algorithm](https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm).
+- Boundary Conditions: The robot does not move outside the grid. If a move would cause it to go out of bounds, it does not move.
+-Output: After executing all commands, the robot's path and the final grid state are outputted. If the --totxt option is provided, the result is written to a file.
+
+This structure should now give clear, complete, and practical guidance for building and running the project, as well as a brief explanation of the underlying logic.
