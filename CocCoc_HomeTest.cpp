@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <filesystem>
+#include <chrono>
 
 // Default paths
 const std::string TestcasesPath = TESTCASES_PATH "/";
@@ -54,8 +55,19 @@ int main(int argc, char* argv[]) {
     robot.executeCommands(commands);
 
     if (writeToFile) {
+        // Start the timer
+        auto start = std::chrono::high_resolution_clock::now();
+
         robot.drawToTxt(outputFile);
+
+        // Stop the timer
+        auto end = std::chrono::high_resolution_clock::now();
+
+        // Calculate the duration
+        std::chrono::duration<double> duration = end - start;
+
         std::cout << "Output saved to " << outputFile << std::endl;
+        std::cout << "Time taken: " << duration.count() << " seconds" << std::endl; // Display time
     }
     else {
         robot.drawBoard();
