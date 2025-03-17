@@ -45,7 +45,7 @@ cmake --build .
 1. Run unit tests
 ```bash
 cd out/Debug
-./unittests.exe
+.\unittests.exe
 ```
 
 2. Run the executable
@@ -53,30 +53,46 @@ cd out/Debug
 - Running with defaut testcase
 ```bash
 cd out/Debug
-./hometest.exe
+.\hometest.exe
 ```
 
-- Running with custom testcase
+- Running with custom testcase (console log)
 ```bash
-./hometest.exe <testname>
+.\hometest.exe <testname>
 
 # Example
-./hometest.exe test1.txt
+.\hometest.exe test1.txt
 ```
 
 - Running and Writing Output to File Txt
 ```bash
-./hometest.exe <testname> --totxt
+.\hometest.exe <testname> --totxt
 
 # Example
-./hometest.exe test1.txt --totxt
+.\hometest.exe test1.txt --totxt
 ```
 - By default, the output is saved to testcases_output/my_testcase.txt. To specify a custom output file:
 ```bash
-./hometest.exe <testname> --totxt <outputname>
+.\hometest.exe <testname> --totxt <outputname>
+
 # Example
-./hometest.exe test1.txt --totxt my_output.txt
+.\hometest.exe test1.txt --totxt my_output.txt
 ```
+
+- Create testcases
+```bash
+.\createtestcase.exe <dimentions> <num__commands> <outputname>
+
+# Example
+.\createtestcase.exe 1000 1000 test20.txt
+```
+
+- Full sample
+```bash
+.\createtestcase.exe 1000 1000 test20.txt
+.\hometest.exe test20.txt --totxt
+```
+The output will show in Binary out/testcases and out/testcases_output folder
 
 ## Project Logic and Approach
 ### Code Structure
@@ -87,6 +103,7 @@ cd out/Debug
 	- The robot reads commands (such as DIMENTION, MOVE_TO, LINE_TO) and moves across the grid.
 	- The grid is an N x N matrix where the robot can move and draw based on the provided commands.
 - Unit Tests: Unit tests are provided to verify each function in isolation, ensuring the correctness of logic (e.g., verifying the robot moves correctly and handles boundary conditions).
+- Testcase generation: A separate executable is provided to generate testcases with random commands and dimensions. This helps test the robot's performance with different input sizes and scenarios.
 
 ### Approach
 - Grid Initialization: A grid of size N x N is created, where the robot begins in the top-left corner (0,0).
@@ -94,6 +111,6 @@ cd out/Debug
 - Movement: The robot moves based on the direction provided by each command. It checks if the move is within the grid's boundaries.
 - Drawing: When a `LINE_TO` command is received, the robot draw a line from current to target position on the grid using [Bresenham's Line Algorithm](https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm).
 - Boundary Conditions: The robot does not move outside the grid. If a move would cause it to go out of bounds, it does not move.
--Output: After executing all commands, the robot's path and the final grid state are outputted. If the --totxt option is provided, the result is written to a file.
+ -Output: After executing all commands, the robot's path and the final grid state are outputted. If the --totxt option is provided, the result is written to a file.
 
 This structure should now give clear, complete, and practical guidance for building and running the project, as well as a brief explanation of the underlying logic.

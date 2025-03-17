@@ -25,16 +25,19 @@ target_link_libraries(unittests gtest_main)
 
 # =========== For custom testcase ===========
 # Define the testcases directory
-set(TESTCASE_DIR ${CMAKE_SOURCE_DIR}/testcases)
+set(TESTCASE_SOURCE_DIR ${CMAKE_SOURCE_DIR}/testcases)
 
 # Ensure the testcases directory exists in the build folder
 add_custom_target(copy_testcases ALL
-    COMMAND ${CMAKE_COMMAND} -E copy_directory ${TESTCASE_DIR} ${CMAKE_BINARY_DIR}/testcases
+    COMMAND ${CMAKE_COMMAND} -E copy_directory ${TESTCASE_SOURCE_DIR} ${CMAKE_BINARY_DIR}/testcases
     COMMENT "Copying test cases to build directory"
 )
 
-set(TESTCASES_OUTPUT_DIR "${CMAKE_BINARY_DIR}/testcases_output")
+set(TESTCASE_DIR ${CMAKE_BINARY_DIR}/testcases)
+set(TESTCASES_OUTPUT_DIR ${CMAKE_BINARY_DIR}/testcases_output)
 file(MAKE_DIRECTORY ${TESTCASES_OUTPUT_DIR})
 
 add_compile_definitions(TESTCASES_PATH="${TESTCASE_DIR}")
 add_compile_definitions(TESTCASES_OUTPUT_PATH="${TESTCASES_OUTPUT_DIR}")
+
+add_executable(createtestcase "create_testcase.cpp")
