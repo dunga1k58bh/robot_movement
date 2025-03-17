@@ -50,13 +50,13 @@ cd out/Debug
 
 2. Run the executable
 
-Running with defaut testcase
+- Running with defaut testcase
 ```bash
 cd out/Debug
 ./hometest.exe
 ```
 
-Running with custom testcase
+- Running with custom testcase
 ```bash
 ./hometest.exe <testname>
 
@@ -64,14 +64,14 @@ Running with custom testcase
 ./hometest.exe test1.txt
 ```
 
-Running and Writing Output to File Txt
+- Running and Writing Output to File Txt
 ```bash
 ./hometest.exe <testname> --totxt
 
 # Example
 ./hometest.exe test1.txt --totxt
 ```
-By default, the output is saved to testcases_output/my_testcase.txt. To specify a custom output file:
+- By default, the output is saved to testcases_output/my_testcase.txt. To specify a custom output file:
 ```bash
 ./hometest.exe <testname> --totxt <outputname>
 # Example
