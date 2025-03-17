@@ -92,7 +92,7 @@ cd out/Debug
 - Grid Initialization: A grid of size N x N is created, where the robot begins in the top-left corner (0,0).
 - Command Parsing: Each command is parsed and executed sequentially.
 - Movement: The robot moves based on the direction provided by each command. It checks if the move is within the grid's boundaries.
-- Drawing: When a `LINE_TO` command is received, the robot marks its current position on the grid using [Bresenham's Line Algorithm](https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm).
+- Drawing: When a `LINE_TO` command is received, the robot draw a line from current to target position on the grid using [Bresenham's Line Algorithm](https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm).
 - Boundary Conditions: The robot does not move outside the grid. If a move would cause it to go out of bounds, it does not move.
 -Output: After executing all commands, the robot's path and the final grid state are outputted. If the --totxt option is provided, the result is written to a file.
 
