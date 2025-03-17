@@ -13,7 +13,7 @@ series of commands
 
 1. Clone the repository
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/dunga1k58bh/coccoc_hometest.git
 cd <your-repo-folder>
 ```
 
