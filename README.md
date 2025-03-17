@@ -102,7 +102,9 @@ The output will show in Binary out/testcases and out/testcases_output folder
 	- CocCoc_HomeTest.cpp: Contains the main function that reads input commands, creates a DrawingRobot instance, and executes the commands.
 	- The robot reads commands (such as DIMENTION, MOVE_TO, LINE_TO) and moves across the grid.
 	- The grid is an N x N matrix where the robot can move and draw based on the provided commands.
-- Unit Tests: Unit tests are provided to verify each function in isolation, ensuring the correctness of logic (e.g., verifying the robot moves correctly and handles boundary conditions).
+- Unit Tests: 
+	- Unit tests are provided to verify each function in isolation, ensuring the correctness of logic (e.g., verifying the robot moves correctly and handles boundary conditions).
+	- Using external library [Google Test](https://github.com/google/googletest) for unit tests.
 - Testcase generation: A separate executable is provided to generate testcases with random commands and dimensions. This helps test the robot's performance with different input sizes and scenarios.
 
 ### Approach
@@ -114,3 +116,12 @@ The output will show in Binary out/testcases and out/testcases_output folder
  -Output: After executing all commands, the robot's path and the final grid state are outputted. If the --totxt option is provided, the result is written to a file.
 
 This structure should now give clear, complete, and practical guidance for building and running the project, as well as a brief explanation of the underlying logic.
+
+### Complexity Analysis
+- Time Complexity: The time complexity of the robot movement and drawing logic is O(K * N + N * N), where K is number of command & N is the grid size.
+	- Parsing commands: O(K) to parse K commands.
+	- Drawing lines: O(N) to draw lines using Bresenham's algorithm.
+	- Drawing board: O(N * N) to draw the final board state.
+	- When N big, it will take more time to draw the board, we draw it to a new file to reduce time
+	- Space complexity: The space complexity is O(N * N) to store the grid and O(1) for the robot's position.
+- Space Complexity: The space complexity is O(N * N) to store the grid and O(1) for the robot's position and direction.
