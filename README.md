@@ -1,6 +1,6 @@
 # Robot Movement
 
-Implement a robot that moves and draws on an N × N square grid by executing a 
+Implement a robot that moves and draws on an N Ã— N square grid by executing a 
 series of commands
 
 ## Build Instructions
@@ -120,7 +120,7 @@ This structure should now give clear, complete, and practical guidance for build
 ### Complexity Analysis
 - Time Complexity: The time complexity of the robot movement and drawing logic is O(K * N + N * N), where K is number of command & N is the grid size.
 	- Parsing commands: O(K) to parse K commands.
-	- Drawing lines: O(N) to draw lines using Bresenham's algorithm.
+	- Drawing lines: O(K * N) to draw lines using Bresenham's algorithm.
 	- Drawing board: O(N * N) to draw the final board state.
 	- When K big, it will take more time to parse the commands, if LINE_TO command is big, it will take more time to draw the line (Bresenham's algorithm execution)
 	- When N big, it will take more time to draw the board, we draw it to a new file to reduce time
