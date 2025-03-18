@@ -124,5 +124,4 @@ This structure should now give clear, complete, and practical guidance for build
 	- Drawing board: O(N * N) to draw the final board state.
 	- When K big, it will take more time to parse the commands, if LINE_TO command is big, it will take more time to draw the line (Bresenham's algorithm execution)
 	- When N big, it will take more time to draw the board, we draw it to a new file to reduce time
-	- Space complexity: The space complexity is O(N * N) to store the grid and O(1) for the robot's position.
 - Space Complexity: The space complexity is O(N * N) to store the grid and O(1) for the robot's position and direction.
