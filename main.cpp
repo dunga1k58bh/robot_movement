@@ -70,6 +70,7 @@ int main(int argc, char* argv[]) {
         std::cout << "Time taken: " << duration.count() << " seconds" << std::endl; // Display time
     }
     else {
+        // Else draw to the console
         robot.drawBoard();
     }
 
