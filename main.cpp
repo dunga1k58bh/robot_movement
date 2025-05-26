@@ -7,6 +7,8 @@
 // Default paths
 const std::string TestcasesPath = TESTCASES_PATH "/";
 const std::string OutputPath = TESTCASES_OUTPUT_PATH "/";
+
+// Command file path
 const std::string DefaultCommandsFile = "commands.txt";
 
 int main(int argc, char* argv[]) {
